@@ -1,5 +1,5 @@
 schedule = low_diskspace,5,60,close_low_diskspace=100M
-schedule = watch_directory_1,5,5,"load.start=/torrents/*.torrent"
+schedule = watch_directory_1,5,60,"load.start=/torrents/*.torrent"
 directory = /downloads
 session = /config/rtorrent_sess
 
@@ -27,7 +27,7 @@ min_peers_seed = 1
 max_peers_seed = 1024
 
 # tracker_numwant = -1
-trackers.numwant.set = -1
+# trackers.numwant.set = -1
 
 # global upload and download rate in KiB. "0" for unlimited
 # throttle.global_up.max_rate.set_kb = 0
