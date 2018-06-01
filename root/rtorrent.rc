@@ -1,0 +1,70 @@
+schedule = low_diskspace,5,60,close_low_diskspace=100M
+schedule = watch_directory_1,5,5,"load.start=/torrents/*.torrent"
+directory = /downloads
+session = /config/rtorrent_sess
+
+# Downloads Settings
+#
+# maximum number of simultaneous uploads per torrent
+# throttle.max_uploads.set = 30
+# max_uploads = 30
+max_uploads = 1024
+
+# maximum and minimum number of peers to connect to per torrent
+# throttle.min_peers.normal.set = 40
+# throttle.max_peers.normal.set = 100
+# min_peers = 40
+# max_peers = 100
+min_peers = 1
+max_peers = 1024
+
+# same as above but for seeding completed torrents (-1 = same as downloading)
+# throttle.min_peers.seed.set = 25
+# throttle.max_peers.seed.set = 60
+# min_peers_seed = 25
+# max_peers_seed = 60
+min_peers_seed = 1
+max_peers_seed = 1024
+
+# tracker_numwant = -1
+trackers.numwant.set = -1
+
+# global upload and download rate in KiB. "0" for unlimited
+# throttle.global_up.max_rate.set_kb = 0
+# throttle.global_down.max_rate.set_kb = 0
+upload_rate = 0
+download_rate = 0
+
+# check hash for finished torrents. might be useful until the bug is
+# fixed that causes lack of diskspace not to be properly reported
+# pieces.hash.on_completion.set = yes
+check_hash = yes
+
+# max mapped memory
+# nb does not refer to physical memory
+# max_memory_usage = 3500M
+pieces.memory.max.set = 3500M
+
+# max number of files to keep open simultaneously
+# max_open_files = 192
+# network.max_open_files.set = 192
+network.max_open_files.set = 1024
+
+# max_open_http = 32
+# network.http.max_open.set = 32
+network.http.max_open.set = 256
+
+# the IP address reported to the tracker
+# network.local_address.set = rakshasa.no
+# network.local_address.set = 127.0.0.1
+# ip = rakshasa.no
+
+bind = 0.0.0.0
+port_range = 51413-51413
+use_udp_trackers = true
+encryption = allow_incoming,try_outgoing,enable_retry
+dht = auto
+dht_port = 6881
+peer_exchange = yes
+encoding_list = UTF-8
+system.file.max_size.set = -1
